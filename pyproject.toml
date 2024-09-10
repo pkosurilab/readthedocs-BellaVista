@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "Bella Vista"
+name = "Bella-Vista"
 version = "0.0.1"
 authors = [
     {name = "Annabelle Coles", email = "acoles@salk.edu"}]   
