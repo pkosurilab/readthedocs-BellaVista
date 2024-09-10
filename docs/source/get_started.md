@@ -185,7 +185,6 @@ To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
       "input_files": {
           "transcript_filename": "transcripts.parquet",
           "images": "morphology_mip.ome.tif",
-          "z_plane": 5,
           "cell_segmentation": "cell_boundaries.parquet",
           "nuclear_segmentation": "nucleus_boundaries.parquet"
       }

@@ -58,8 +58,7 @@ Configuration files needed to reproduce the sample screenshots are available [he
   
     "input_files": {
         "transcript_filename": "transcripts.parquet",
-        "images": "morphology_mip.ome.tif",
-        "z_plane": 5
+        "images": "morphology_mip.ome.tif"
     }
     
   }
