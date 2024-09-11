@@ -13,7 +13,7 @@ The following instructions require that you have [Anaconda](https://www.anaconda
 ```{eval-rst}
 .. code-block:: python
 
-    conda create -n bellavista_env python=3.9
+    conda create -n bellavista_env python
     conda activate bellavista_env
 ```
 
