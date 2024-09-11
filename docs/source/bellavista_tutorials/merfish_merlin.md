@@ -47,7 +47,6 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
     { 
         "system": "merlin", 
         "data_folder": "/path/to/merlin_outs",
-        "bella_vista_output_folder": "/path/to/merlin_outs/bellavista_outs",
         "create_bellavista_inputs": true,
 
         "visualization_parameters": {
@@ -126,15 +125,13 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
  The input is not case-sensitive, so values "merlin", "MERlin", and "MERLIN" are treated equivalently
 
 **data_folder**: *string*
-: Path to folder containing dataset output files
-  
-**bella_vista_output_folder**: *string*
-: Path to save & load Bella Vista visualization files
+: The path to the folder where the dataset output files are stored. Bella Vista visualization files will be saved in a new folder named `BellaVista_output` within the data_folder.
   
 **create_bellavista_inputs**: *boolean, default=true*
-: Create required visualization files for Bella Vista. Must be `true` when first loading data.\
- Can be `false` in subsequent runs (since files have already been created)
- > If set to `true` and the visualization files have already been created from a previous run, Bella Vista will skip the preparation of existing visualization files and only create files that do not exist.
+: Specifies whether to generate the necessary visualization files for Bella Vista. It should be set to `true` when loading the data for the first time. It can be set to `false` in later runs, as the files will already have been created.
+
+  > If set to `true` and the visualization files already exist from a previous run, Bella Vista will skip recreating those files and only generate any missing ones.
+
 
 ## Visualization parameters
 
@@ -142,17 +139,17 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
 : Display image(s)
 
 **plot_transcripts**: *boolean, default=false*
-: Plot gene transcript spatial coordinates
+: Plot spatial coordinates of gene transcripts
 
 **plot_allgenes**: *boolean, default=true*
-: Plot transcripts for all gene IDs. If false, only gene IDs in `selected_genes` will be plotted
+: Plot transcripts for all gene IDs. If set to `false`, only the gene IDs specified in `selected_genes` will be plotted
 
 **genes_visible_on_startup**: *boolean, default=false*
-: Controls the visibility of all gene layers at startup. If set to false, the gene layers will be hidden
+: Controls the visibility of all gene layers at startup. If set to `false`, the gene layers will be hidden
 > Setting this option to false improves navigation performance. Gene layers can be shown later using the toggle visibility feature.
 
 **selected_genes**: *1D array of strings, default=None*
-: Only plot transcripts for gene IDs specified in list. If None, all genes will be plotted by default
+:  Specifies the gene IDs whose transcripts will be plotted. If None, transcripts for all genes will be plotted
 
 **plot_cell_seg**: *boolean, default=false*
 : Plot cell segmentation
@@ -160,14 +157,14 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
 **plot_nuclear_seg**: *boolean, default=false*
 : Plot nuclear segmentation
 
-**transcript_point_size**: *float, default=1.0*
-: Point size for individual transcript coordinates
+**transcript_point_size**: *float, default=1*
+: Size of the points representing individual transcript coordinates
 
 **contrast_limits**: *tuple array of integers, default=None*
-: Values in the range [0, 65535]. Contrast limits for displayed image(s)
+: Range of values [0, 65535] used to set the contrast limits for the displayed image(s)
 
 **rotate_angle**: *integer, default=0*
-: Value in the range [0, 360]. Angle in degrees by which to rotate the data
+: Rotation angle in degrees, within the range [0, 360], by which to rotate the data
 
 ## Loading Bella Vista
 
@@ -205,13 +202,13 @@ If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-q
 
 For this example, we processed the first FOV from a MERFISH sample dataset from the Brain Image Library [@Zhuang2020] via MERlin.
 
-Download MERlin processed MERFISH mouse primary motor cortex dataset (mouse 2, sample 4, FOV 0) from [dropbox](https://www.dropbox.com/scl/fo/8km4m5wcj5a95ezfqyz7o/AOonVJDDv9GdzwdD-4_7NcU?rlkey=hcruoy48tzveyewkw1z2fya5t).
+1. Download MERlin processed MERFISH mouse primary motor cortex dataset (mouse 2, sample 4, FOV 0) from [dropbox](https://www.dropbox.com/scl/fo/8km4m5wcj5a95ezfqyz7o/AOonVJDDv9GdzwdD-4_7NcU?rlkey=hcruoy48tzveyewkw1z2fya5t).
 
 ### Load Bella Vista
 
-1. In the folder downloaded from dropbox, open `merlin_sample.json`
-2. Replace the paths in `data_folder` and `bella_vista_output_folder`
-<br><br>
+2. In the folder downloaded from dropbox, open `merlin_sample.json`
+3. Replace the path in `data_folder`
+      - Python cannot parse JSON files containing file paths with single backslashes (\\). To avoid errors, use either forward slashes (/) or double backslashes (\\\\) when representing file paths in the JSON strings.
 
 **merlin_sample.json**
 ```{eval-rst}
@@ -221,7 +218,6 @@ Download MERlin processed MERFISH mouse primary motor cortex dataset (mouse 2, s
   { 
       "system": "merlin", 
       "data_folder": "/path/to/merlin_outs",
-      "bella_vista_output_folder": "/path/to/merlin_outs/bellavista_outs",
       "create_bellavista_inputs": true,
 
       "parameters": { 
@@ -245,7 +241,7 @@ Download MERlin processed MERFISH mouse primary motor cortex dataset (mouse 2, s
   }
 ```
 
-3. In the terminal, run Bella Vista with the MERlin sample JSON:
+4. In the terminal, run Bella Vista with the MERlin sample JSON:
     - The JSON file argument should contain the file path to the JSON file.
 
 ```{eval-rst}

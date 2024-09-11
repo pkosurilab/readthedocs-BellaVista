@@ -16,7 +16,7 @@ Below is a step-by-step guide to reproducing the following screenshots from a sa
 
 ### Download sample data
 
-Download sample data: Xenium mouse brain dataset (replicate 3)
+1. Download sample data: Xenium mouse brain dataset (replicate 3)
 [https://www.10xgenomics.com/datasets/fresh-frozen-mouse-brain-replicates-1-standard](https://www.10xgenomics.com/datasets/fresh-frozen-mouse-brain-replicates-1-standard)
 
 To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
@@ -27,10 +27,10 @@ Configuration files needed to reproduce the sample screenshots are available [he
 
 ### Load Bella Vista
 
-1. Copy and save contents below into a new JSON file called `sample_figure_xenium_brain.json`
+2. Copy and save contents below into a new JSON file called `sample_figure_xenium_brain.json`
       - This sample JSON can also be found in the Dropbox folder
-2. Replace the paths in `data_folder` and `bella_vista_output_folder` parameters
-      - JSON files cannot interpret the blackslash character (\\), instead you should use a forward slash (/)
+3. Replace the path in `data_folder`
+      - Python cannot parse JSON files containing file paths with single backslashes (\\). To avoid errors, use either forward slashes (/) or double backslashes (\\\\) when representing file paths in the JSON strings.
 
 ```{eval-rst}
 .. code-block:: JSON
@@ -39,7 +39,6 @@ Configuration files needed to reproduce the sample screenshots are available [he
   {
     "system": "xenium",
     "data_folder": "/path/to/xenium_brain_rep3",
-    "bella_vista_output_folder": "/path/to/xenium_brain_rep3/bellavista_outs",
     "create_bellavista_inputs": true,
   
     "visualization_parameters": {
@@ -64,7 +63,7 @@ Configuration files needed to reproduce the sample screenshots are available [he
   }
 ```
 
-3. In the terminal, run Bella Vista with the Xenium sample JSON. 
+4. In the terminal, run Bella Vista with the Xenium sample JSON. 
     - The JSON file argument should contain the file path to the JSON file.
 ```{eval-rst}
 .. code-block:: python

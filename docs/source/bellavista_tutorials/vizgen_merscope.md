@@ -13,7 +13,6 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
     { 
         "system": "MERSCOPE", 
         "data_folder": "/path/to/MERSCOPE_dataset_outs",
-        "bella_vista_output_folder": "/path/to/MERSCOPE_dataset_outs/bellavista_outs",
         "create_bellavista_inputs": true,
 
         "visualization_parameters": {
@@ -86,15 +85,13 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
  The input is not case-sensitive, so values "merscope", "Merscope", and "MERSCOPE" are treated equivalently
 
 **data_folder**: *string*
-: Path to folder containing dataset output files
-  
-**bella_vista_output_folder**: *string*
-: Path to save & load Bella Vista visualization files
+: The path to the folder where the dataset output files are stored. Bella Vista visualization files will be saved in a new folder named `BellaVista_output` within the data_folder.
   
 **create_bellavista_inputs**: *boolean, default=true*
-: Create required visualization files for Bella Vista. Must be `true` when first loading data.\
- Can be `false` in subsequent runs (since files have already been created)
- > If set to `true` and the visualization files have already been created from a previous run, Bella Vista will skip the preparation of existing visualization files and only create files that do not exist.
+: Specifies whether to generate the necessary visualization files for Bella Vista. It should be set to `true` when loading the data for the first time. It can be set to `false` in later runs, as the files will already have been created.
+
+  > If set to `true` and the visualization files already exist from a previous run, Bella Vista will skip recreating those files and only generate any missing ones.
+
 
 ## Visualization parameters
 
@@ -102,17 +99,17 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
 : Display image(s)
 
 **plot_transcripts**: *boolean, default=false*
-: Plot gene transcript spatial coordinates
+: Plot spatial coordinates of gene transcripts
 
 **plot_allgenes**: *boolean, default=true*
-: Plot transcripts for all gene IDs. If false, only gene IDs in `selected_genes` will be plotted
+: Plot transcripts for all gene IDs. If set to `false`, only the gene IDs specified in `selected_genes` will be plotted
 
 **genes_visible_on_startup**: *boolean, default=false*
-: Controls the visibility of all gene layers at startup. If set to false, the gene layers will be hidden
+: Controls the visibility of all gene layers at startup. If set to `false`, the gene layers will be hidden
 > Setting this option to false improves navigation performance. Gene layers can be shown later using the toggle visibility feature.
 
 **selected_genes**: *1D array of strings, default=None*
-: Only plot transcripts for gene IDs specified in list. If None, all genes will be plotted by default
+:  Specifies the gene IDs whose transcripts will be plotted. If None, transcripts for all genes will be plotted
 
 **plot_cell_seg**: *boolean, default=false*
 : Plot cell segmentation
@@ -120,14 +117,14 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
 **plot_nuclear_seg**: *boolean, default=false*
 : Plot nuclear segmentation
 
-**transcript_point_size**: *float, default=1.0*
-: Point size for individual transcript coordinates
+**transcript_point_size**: *float, default=1*
+: Size of the points representing individual transcript coordinates
 
 **contrast_limits**: *tuple array of integers, default=None*
-: Values in the range [0, 65535]. Contrast limits for displayed image(s)
+: Range of values [0, 65535] used to set the contrast limits for the displayed image(s)
 
 **rotate_angle**: *integer, default=0*
-: Value in the range [0, 360]. Angle in degrees by which to rotate the data
+: Rotation angle in degrees, within the range [0, 360], by which to rotate the data
 
 ## Loading Bella Vista
 
@@ -163,49 +160,49 @@ If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-q
 
 ### Download sample data
 
-Download sample data: MERSCOPE mouse brain dataset (slice 1, replicate 1)
+1. Download sample data: MERSCOPE mouse brain dataset (slice 1, replicate 1)
 [https://info.vizgen.com/mouse-brain-map](https://info.vizgen.com/mouse-brain-map)
 
-To download the dataset, Vizgen may ask you to fill out a questionnaire.
+    To download the dataset, Vizgen may ask you to fill out a questionnaire.
 
-<p align="center">
-  <picture>
-    <img src="../_static/tutorials/merscope/vizgen_testdata_location.png" alt="MERSCOPE sample data website location" width="600" />
-  </picture>
-</p>
-<p align="center">
+  <p align="center">
+    <picture>
+      <img src="../_static/tutorials/merscope/vizgen_testdata_location.png" alt="MERSCOPE sample data website location" width="600" />
+    </picture>
+  </p>
+  <p align="center">
 
-For this example, you only need to download:
-- `detected_transcripts_S1R1.csv`
-- `cell_boundaries/`
-- `mosaic_DAPI_z3.tif` & `micron_to_mosaic_pixel_transform.csv` found inside `images/`
+  For this example, you only need to download:
+  - `detected_transcripts_S1R1.csv`
+  - `cell_boundaries/`
+  - `mosaic_DAPI_z3.tif` & `micron_to_mosaic_pixel_transform.csv` found inside `images/`
 
-<p align="center">
-  <picture>
-    <img src="../_static/tutorials/merscope/vizgen_testdata_bucket.png" alt="MERSCOPE sample data google cloud console"/>
-  </picture>
-</p>
-<p align="center">
+  <p align="center">
+    <picture>
+      <img src="../_static/tutorials/merscope/vizgen_testdata_bucket.png" alt="MERSCOPE sample data google cloud console"/>
+    </picture>
+  </p>
+  <p align="center">
 
-```{eval-rst}
-.. note::
+  ```{eval-rst}
+  .. note::
 
-  To download the :samp:`cell_boundaries` folder, you may need to use gsutil (Google Cloud Console will prompt you if this is the case).
+    To download the :samp:`cell_boundaries` folder, you may need to use gsutil (Google Cloud Console will prompt you if this is the case).
 
-  Here is some information on how to use gsutil: https://cloud.google.com/storage/docs/gsutil_install
+    Here is some information on how to use gsutil: https://cloud.google.com/storage/docs/gsutil_install
 
-```
+  ```
 
- <!-- FINISH NOTES ABOUT GSUTIL INFO -->
+  <!-- FINISH NOTES ABOUT GSUTIL INFO -->
 
 
-For this example, we will visualize a subset of the genes which are listed in the visualization parameter `selected_genes` to speed up computation. If you wish to visualize all genes, set the visualization parameter `plot_allgenes` to `true`. If visualizing all genes, we recommend setting `genes_visible_on_startup` to `false` to improve navigation performance.
+  For this example, we will visualize a subset of the genes which are listed in the visualization parameter `selected_genes` to speed up computation. If you wish to visualize all genes, set the visualization parameter `plot_allgenes` to `true`. If visualizing all genes, we recommend setting `genes_visible_on_startup` to `false` to improve navigation performance.
 
 ### Load Bella Vista
 
-1. Download the sample JSON file from the GitHub repository: [BellaVista/sample_json/merscope_sample.json](https://github.com/pkosurilab/BellaVista/tree/main/sample_json/merscope_sample.json)
-2. Replace the paths in the `data_folder` and `bella_vista_output_folder` properties
-<br><br>
+2. Download the sample JSON file from the GitHub repository: [BellaVista/sample_json/merscope_sample.json](https://github.com/pkosurilab/BellaVista/tree/main/sample_json/merscope_sample.json)
+3. Replace the path in `data_folder`
+      - Python cannot parse JSON files containing file paths with single backslashes (\\). To avoid errors, use either forward slashes (/) or double backslashes (\\\\) when representing file paths in the JSON strings.
 
 **merscope_sample.json**
 ```{eval-rst}
@@ -215,7 +212,6 @@ For this example, we will visualize a subset of the genes which are listed in th
   { 
       "system": "merscope", 
       "data_folder": "/path/to/vizgen_brain_s1r1",
-      "bella_vista_output_folder": "/path/to/vizgen_brain_s1r1/bellavista_outs",
       "create_bellavista_inputs": true,
 
       "visualization_parameters": { 
@@ -241,7 +237,7 @@ For this example, we will visualize a subset of the genes which are listed in th
   }
 ```
 
-3. In the terminal, run Bella Vista with the MERSCOPE sample JSON:
+4. In the terminal, run Bella Vista with the MERSCOPE sample JSON:
     - The JSON file argument should contain the file path to the JSON file.
 ```{eval-rst}
 .. code-block:: python

@@ -55,7 +55,7 @@ For more information, refer to the [napari point layer documentation](https://na
 (faq)=
 ## {octicon}`question` Frequently Asked Questions
 :::{dropdown} Why can't I see my image?
-If your image is not listed in the sidebar list of layers, check if `plot_image` is set to `true`. If it is set to `true` but is still not listed, it might be that an error occured during the preparation of the image visualization file. To check if an error occured, you can look at `exceptions.json`, which can be found in the `bella_vista_output_folder` definied in your JSON file. If an error occured, the error would also be printed in the terminal.
+If your image is not listed in the sidebar list of layers, check if `plot_image` is set to `true`. If it is set to `true` but is still not listed, it might be that an error occured during the preparation of the image visualization file. To check if an error occured, you can look at `exceptions.json`, which can be found in the `BellaVista_output` inside the `data_folder` folder definied in your JSON file. If an error occured, the error would also be printed in the terminal.
 
 This may occur if there was a missing input file required to visualize the image. For information about which input files are required to visualize an image for the technology you are using, refer to the tutorial page and look at the "Input file parameters" section on the tutorial for that technology. 
 
