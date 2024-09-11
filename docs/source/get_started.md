@@ -145,7 +145,7 @@ Below is a short tutorial for loading Bella Vista with sample Xenium data. This 
 
     To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
 
-<img src="https://github.com/pkosurilab/BellaVista/blob/main/images/xenium_testdata_location.png?raw=true" alt="Xenium sample data website location" width="600" />
+<img src="https://github.com/pkosurilab/BellaVista/blob/main/images/xenium_testdata_location.png?raw=true" alt="Xenium sample data website location" width="600" align="center"/>
 
 ### Load Bella Vista
 
