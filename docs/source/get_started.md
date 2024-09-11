@@ -143,9 +143,9 @@ Below is a short tutorial for loading Bella Vista with sample Xenium data. This 
 1. Download sample data: Xenium mouse brain dataset (replicate 3)
 [https://www.10xgenomics.com/datasets/fresh-frozen-mouse-brain-replicates-1-standard](https://www.10xgenomics.com/datasets/fresh-frozen-mouse-brain-replicates-1-standard)
 
-    To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
+To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
 
-<img src="https://github.com/pkosurilab/BellaVista/blob/main/images/xenium_testdata_location.png?raw=true" alt="Xenium sample data website location" width="600" align="center"/>
+<img src="https://github.com/pkosurilab/BellaVista/blob/main/images/xenium_testdata_location.png?raw=true" alt="Xenium sample data website location" width="600"/>
 
 ### Load Bella Vista
 
