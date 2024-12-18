@@ -3,7 +3,7 @@ Vizgen MERSCOPE
 
 This tutorial is for visualizing Vizgen MERSCOPE datasets. 
 
-In order to visualize your MERSCOPE dataset in Bella Vista, you will need to create a dataset-specific JSON configuration file containing paths to the MERSCOPE outputs for your dataset. These output files will be processed to generate visualization files for Bella Vista. Creating these visualization files will take a few minutes but only need to be created once. For subsequent runs, `create_inputs` can be set to `False`.
+In order to visualize your MERSCOPE dataset in BellaVista, you will need to create a dataset-specific JSON configuration file containing paths to the MERSCOPE outputs for your dataset. These output files will be processed to generate visualization files for BellaVista. Creating these visualization files will take a few minutes but only need to be created once. For subsequent runs, `create_inputs` can be set to `False`.
 
 ## Configuration JSON file structure
 
@@ -65,7 +65,7 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
 
 ```{eval-rst}
 .. note::
-  If you are missing some input files, remove those input file parameters from the JSON file. Bella Vista will skip the visualization of these data.
+  If you are missing some input files, remove those input file parameters from the JSON file. BellaVista will skip the visualization of these data.
 
   For example, if you do not have cell segmentations, the input file parameters in your JSON file might look like this: 
 
@@ -85,12 +85,12 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
  The input is not case-sensitive, so values "merscope", "Merscope", and "MERSCOPE" are treated equivalently
 
 **data_folder**: *string*
-: The path to the folder where the dataset output files are stored. Bella Vista visualization files will be saved in a new folder named `BellaVista_output` within the data_folder.
+: The path to the folder where the dataset output files are stored. BellaVista visualization files will be saved in a new folder named `BellaVista_output` within the data_folder.
   
 **create_bellavista_inputs**: *boolean, default=true*
-: Specifies whether to generate the necessary visualization files for Bella Vista. It should be set to `true` when loading the data for the first time. It can be set to `false` in later runs, as the files will already have been created.
+: Specifies whether to generate the necessary visualization files for BellaVista. It should be set to `true` when loading the data for the first time. It can be set to `false` in later runs, as the files will already have been created.
 
-  > If set to `true` and the visualization files already exist from a previous run, Bella Vista will skip recreating those files and only generate any missing ones.
+  > If set to `true` and the visualization files already exist from a previous run, BellaVista will skip recreating those files and only generate any missing ones.
 
 
 ## Visualization parameters
@@ -126,15 +126,15 @@ In order to visualize your MERSCOPE dataset in Bella Vista, you will need to cre
 **rotate_angle**: *integer, default=0*
 : Rotation angle in degrees, within the range [0, 360], by which to rotate the data
 
-## Loading Bella Vista
+## Loading BellaVista
 
-Once your JSON is correctly configured for your dataset, you can run Bella Vista in the terminal:
+Once your JSON is correctly configured for your dataset, you can run BellaVista in the terminal:
 
   - Replace `my_dataset.json` with the filename of the JSON you created. The JSON file argument should contain the file path to your JSON file.
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-  bellavista my_dataset.json
+  $ bellavista my_dataset.json
 ```
 ```{eval-rst}
 .. note::
@@ -150,7 +150,7 @@ Once loaded, you should see a napari window displaying your data. Now, you can i
     To visualize a single layer, and hide all other layers, :samp:`Option/Alt-click` on the visibility button (the eye, to the left of the layer name). Check out :ref:`helpful-napari-tips` in the FAQ for more tips!
 ```
 
-Refer to the tutorial below for a step-by-step guide on running Bella Vista with a sample dataset and JSON.
+Refer to the tutorial below for a step-by-step guide on running BellaVista with a sample dataset and JSON.
 
 If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-questions). If you're experiencing issues not addressed in the FAQ, please check the open issues or [open a new issue](https://github.com/pkosurilab/BellaVista/issues)in our GitHub repository. You can also leave any feedback here!
 
@@ -198,7 +198,7 @@ If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-q
 
   For this example, we will visualize a subset of the genes which are listed in the visualization parameter `selected_genes` to speed up computation. If you wish to visualize all genes, set the visualization parameter `plot_allgenes` to `true`. If visualizing all genes, we recommend setting `genes_visible_on_startup` to `false` to improve navigation performance.
 
-### Load Bella Vista
+### Load BellaVista
 
 2. Download the sample JSON file from the GitHub repository: [BellaVista/sample_json/merscope_sample.json](https://github.com/pkosurilab/BellaVista/tree/main/sample_json/merscope_sample.json)
 3. Replace the path in `data_folder`
@@ -237,12 +237,12 @@ If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-q
   }
 ```
 
-4. In the terminal, run Bella Vista with the MERSCOPE sample JSON:
+4. In the terminal, run BellaVista with the MERSCOPE sample JSON:
     - The JSON file argument should contain the file path to the JSON file.
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-  bellavista merscope_sample.json
+  $ bellavista merscope_sample.json
 ```
 
 ```{eval-rst}
@@ -266,9 +266,9 @@ Now, you can interactively move around the napari canvas to explore the data. Tr
 ```{eval-rst}
 .. note::
 
-    Gene colors are assigned randomly every time Bella Vista is launched. So, the gene colors displayed in your window will be different from the image above. See :ref:`helpful-napari-tips` in the FAQ for commands to configure gene colors and other customizable visualization options. 
+    Gene colors are assigned randomly every time BellaVista is launched. So, the gene colors displayed in your window will be different from the image above. See :ref:`helpful-napari-tips` in the FAQ for commands to configure gene colors and other customizable visualization options. 
     
-    To reproduce the same colors every time you launch Bella Vista, see :ref:`creating-figures` in the figure guide.
+    To reproduce the same colors every time you launch BellaVista, see :ref:`creating-figures` in the figure guide.
 ```
 
 If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-questions). If you're experiencing issues not addressed in the FAQ, please check the open issues or [open a new issue](https://github.com/pkosurilab/BellaVista/issues)in our GitHub repository. You can also leave any feedback here!

@@ -3,7 +3,7 @@
 ```
 # {octicon}`pencil` Figure Guide
 
-Bella Vista can be used to create poster, presentation, and paper-ready figures highlighting spatial discoveries in your data. Figures can also be reproduced between different sessions, different computers, and different users.
+BellaVista can be used to create poster, presentation, and paper-ready figures highlighting spatial discoveries in your data. Figures can also be reproduced between different sessions, different computers, and different users.
 
 ## Reproducing sample figures (Xenium)
 
@@ -25,7 +25,7 @@ To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
 
 Configuration files needed to reproduce the sample screenshots are available [here on Dropbox](https://www.dropbox.com/scl/fo/5ae35p7nbkct0e0mi92vz/AD38rhAb4M6L36putA4qREU?rlkey=hjnf94fomm5k2rfyzyi7b58u3).
 
-### Load Bella Vista
+### Load BellaVista
 
 2. Copy and save contents below into a new JSON file called `sample_figure_xenium_brain.json`
       - This sample JSON can also be found in the Dropbox folder
@@ -63,12 +63,12 @@ Configuration files needed to reproduce the sample screenshots are available [he
   }
 ```
 
-4. In the terminal, run Bella Vista with the Xenium sample JSON. 
+4. In the terminal, run BellaVista with the Xenium sample JSON. 
     - The JSON file argument should contain the file path to the JSON file.
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-  bellavista sample_figure_xenium_brain.json
+  $ bellavista sample_figure_xenium_brain.json
 ```
 
 ```{eval-rst}

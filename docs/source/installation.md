@@ -4,37 +4,37 @@
 
 # {octicon}`terminal` Installation
 
-The following instructions require that you have [Anaconda](https://www.anaconda.com/) installed. It is recommended to create an Anaconda virtual environment to prevent conflicting package dependencies.  The package can be installed from PyPI via [pip](https://pypi.org/project/pip/) (recommended) or from the [GitHub repository](https://github.com/pkosurilab/BellaVista). Bella Vista requires python 3.9 or above and is dependent on GPU for rendering.
+The following instructions require that you have [Anaconda](https://www.anaconda.com/) installed. It is recommended to create an Anaconda virtual environment to prevent conflicting package dependencies.  The package can be installed from PyPI via [pip](https://pypi.org/project/pip/) (recommended) or from the [GitHub repository](https://github.com/pkosurilab/BellaVista). BellaVista requires python 3.9 or above and is dependent on GPU for rendering.
 
 **Create and activate a new virtual environment:**
 
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-    conda create -n bellavista_env python
-    conda activate bellavista_env
+    $ conda create -n bellavista_env python
+    $ conda activate bellavista_env
 ```
 
 
 **Installation via pip:**
 
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-    pip install bellavista
+    $ pip install bellavista
 ```
 
 **Alternatively, you can install from GitHub::**
 
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-    conda install git
-    git clone https://github.com/pkosurilab/BellaVista
-    pip install -e BellaVista
+    $ conda install git
+    $ git clone https://github.com/pkosurilab/BellaVista
+    $ pip install -e BellaVista
 ```
 
-To start exploring your data in Bella Vista see [Getting Started](get_started)
+To start exploring your data in BellaVista see [Getting Started](get_started)
 
 If you are encountering any issues, please [open a new issue](https://github.com/pkosurilab/BellaVista/issues) in the GitHub repository. Feedback is welcome and appreciated!
 

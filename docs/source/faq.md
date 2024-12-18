@@ -87,7 +87,7 @@ If your image has loaded, but appears oversaturated (white), you may need to cha
    viewer.layers["morphology_mip"].contrast_limits = [0, 5000]
 ```
 <br><br>
-**Once you have determined your desired contrast limits, these can be passed into Bella Vista for future runs. Assign these limits to the `contrast_limits` visualization parameter for future runs!**
+**Once you have determined your desired contrast limits, these can be passed into BellaVista for future runs. Assign these limits to the `contrast_limits` visualization parameter for future runs!**
 <br><br>
 [Visualization parameter documentation](./get_started.md#visualization-parameters)
 :::

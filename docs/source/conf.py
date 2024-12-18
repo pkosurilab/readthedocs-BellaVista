@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath(".."))  # Source code dir relative to this fi
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Bella Vista'
+project = 'BellaVista'
 copyright = 'Kosuri Lab. 2024'
 author = 'Annabelle Coles'
 release = '0.1'
@@ -59,7 +59,7 @@ theme_options = ThemeOptions(
 html_sidebars = {"**": ["sidebar_main_nav_links.html", "sidebar_toc.html"]}
 html_theme_options = asdict(theme_options)
 html_permalinks = False
-html_title = "Bella Vista"
+html_title = "BellaVista"
 html_context = {"default_mode": "auto"}
 source_suffix = ['.md']
 extensions = [

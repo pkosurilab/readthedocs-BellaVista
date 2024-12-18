@@ -13,14 +13,14 @@ api
 
 #
 
-<img src="./_static/bellavista_logo_graphic.png" alt="Bella Vista logo" width="150" align = "right"/> 
+<img src="./_static/bellavista_logo_graphic.png" alt="BellaVista logo" width="150" align = "right"/> 
 
-<h1 style="margin-top: -1em">Bella Vista</h1>
+<h1 style="margin-top: -1em">BellaVista</h1>
 <h2  style="margin-top: 0.5em; margin-bottom: 0.8em">Open-Source Visualization for Imaging-Based Spatial Transcriptomics </h2>
 
-<img src="_static/bellavista_figure.png" alt="Bella Vista logo" align = "center"/> 
+<img src="_static/bellavista_figure.png" alt="BellaVista logo" align = "center"/> 
 
-Bella Vista is an open-source Python package developed for 10x Genomics Xenium, Vizgen MERSCOPE, and custom (home-built) MERFISH datasets utilizing [napari](https://napari.org/) for interactive data exploration. We developed Bella Vista to help the spatial transcriptomics community explore their data and create reproducible paper-ready figures.
+BellaVista is an open-source Python package developed for 10x Genomics Xenium, Vizgen MERSCOPE, and custom (home-built) MERFISH datasets utilizing [napari](https://napari.org/) for interactive data exploration. We developed BellaVista to help the spatial transcriptomics community explore their data and create reproducible paper-ready figures.
 <br/><br/>
 If you find this tool useful in your research, please cite our [GitHub repository](https://github.com/pkosurilab/BellaVista)
 

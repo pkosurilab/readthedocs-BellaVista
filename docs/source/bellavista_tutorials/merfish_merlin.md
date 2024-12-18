@@ -1,7 +1,7 @@
 MERFISH - MERlin
 ================
 
-This tutorial is for visualizing datasets from custom (home-built) MERFISH setups processed via the [MERlin](https://github.com/emanuega/MERlin) pipeline. Our aim was to make the Bella Vista package as lightweight as possible and make it easy for users to customize the code for custom setups, analyses, and needs. Check out the [napari website](https://napari.org/) for further documentation and features you can implement!
+This tutorial is for visualizing datasets from custom (home-built) MERFISH setups processed via the [MERlin](https://github.com/emanuega/MERlin) pipeline. Our aim was to make the BellaVista package as lightweight as possible and make it easy for users to customize the code for custom setups, analyses, and needs. Check out the [napari website](https://napari.org/) for further documentation and features you can implement!
 
 ## MERlin pipeline outputs
 
@@ -33,11 +33,11 @@ Standard MERlin outputs folder organization:
 
 From these outputs, it is possible to visualize tissue images, spatial transcript locations, and cell/nuclear segmentation boundaries.
 
-To visualize tissue images, individual field-of-views (FOVs) must be stitched together. FOV images can be found in `FiducialCorrelationWarp/Images` in the MERlin output folder. Currently, Bella Vista does not include a stitching pipeline. Stitching can be accomplished using image processing utilizing python packages such as [NumPy](https://numpy.org/) and [Dask](https://www.dask.org/) or softwares such as [BigStitcher](https://imagej.net/plugins/bigstitcher/). The output stitched image must be a TIFF image, with individually stitched images for each channel you wish to visualize. The stitched images should be saved in the `%ANALYSIS_HOME%` directory.
+To visualize tissue images, individual field-of-views (FOVs) must be stitched together. FOV images can be found in `FiducialCorrelationWarp/Images` in the MERlin output folder. Currently, BellaVista does not include a stitching pipeline. Stitching can be accomplished using image processing utilizing Python packages such as [NumPy](https://numpy.org/) and [Dask](https://www.dask.org/) or softwares such as [BigStitcher](https://imagej.net/plugins/bigstitcher/). The output stitched image must be a TIFF image, with individually stitched images for each channel you wish to visualize. The stitched images should be saved in the `%ANALYSIS_HOME%` directory.
 
-Transcript locations and cell/nuclear segmentations exported by MERlin can be processed directly by Bella Vista.
+Transcript locations and cell/nuclear segmentations exported by MERlin can be processed directly by BellaVista.
 
-In order to visualize your MERFISH dataset in Bella Vista, you will need to create a dataset-specific JSON configuration file containing paths to the MERlin outputs for your dataset. These output files will be processed to generate visualization files for Bella Vista. Creating these visualization files will take a few minutes but only need to be created once. For subsequent runs, `create_inputs` can be set to `False`.
+In order to visualize your MERFISH dataset in BellaVista, you will need to create a dataset-specific JSON configuration file containing paths to the MERlin outputs for your dataset. These output files will be processed to generate visualization files for BellaVista. Creating these visualization files will take a few minutes but only need to be created once. For subsequent runs, `create_inputs` can be set to `False`.
 
 ## Configuration JSON file structure
 
@@ -104,7 +104,7 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
 ```
 ```{eval-rst}
 .. note::
-  If you are missing some input files, remove those input file parameters from the JSON file. Bella Vista will skip the preparation of visualization files for these data.
+  If you are missing some input files, remove those input file parameters from the JSON file. BellaVista will skip the preparation of visualization files for these data.
 
   For example, if you do not have cell segmentations, the input file parameters in your JSON file might look like this: 
 
@@ -125,12 +125,12 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
  The input is not case-sensitive, so values "merlin", "MERlin", and "MERLIN" are treated equivalently
 
 **data_folder**: *string*
-: The path to the folder where the dataset output files are stored. Bella Vista visualization files will be saved in a new folder named `BellaVista_output` within the data_folder.
+: The path to the folder where the dataset output files are stored. BellaVista visualization files will be saved in a new folder named `BellaVista_output` within the data_folder.
   
 **create_bellavista_inputs**: *boolean, default=true*
-: Specifies whether to generate the necessary visualization files for Bella Vista. It should be set to `true` when loading the data for the first time. It can be set to `false` in later runs, as the files will already have been created.
+: Specifies whether to generate the necessary visualization files for BellaVista. It should be set to `true` when loading the data for the first time. It can be set to `false` in later runs, as the files will already have been created.
 
-  > If set to `true` and the visualization files already exist from a previous run, Bella Vista will skip recreating those files and only generate any missing ones.
+  > If set to `true` and the visualization files already exist from a previous run, BellaVista will skip recreating those files and only generate any missing ones.
 
 
 ## Visualization parameters
@@ -166,15 +166,15 @@ In order to visualize your MERFISH dataset in Bella Vista, you will need to crea
 **rotate_angle**: *integer, default=0*
 : Rotation angle in degrees, within the range [0, 360], by which to rotate the data
 
-## Loading Bella Vista
+## Loading BellaVista
 
-Once your JSON is correctly configured for your dataset, you can run Bella Vista in the terminal:
+Once your JSON is correctly configured for your dataset, you can run BellaVista in the terminal:
 
   - Replace `my_dataset.json` with the filename of the JSON you created. The JSON file argument should contain the file path to your JSON file.
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-  bellavista my_dataset.json
+  $ bellavista my_dataset.json
 ```
 ```{eval-rst}
 .. note::
@@ -190,7 +190,7 @@ Once loaded, you should see a napari window displaying your data. Now, you can i
     To visualize a single layer, and hide all other layers, :samp:`Option/Alt-click` on the visibility button (the eye, to the left of the layer name). Check out :ref:`helpful-napari-tips` in the FAQ for more tips!
 ```
 
-Refer to the tutorial below for a step-by-step guide on running Bella Vista with a sample dataset and JSON.
+Refer to the tutorial below for a step-by-step guide on running BellaVista with a sample dataset and JSON.
 
 If you encounter any issues, please check the [FAQ](../faq.md#frequently-asked-questions). If you're experiencing issues not addressed in the FAQ, please check the open issues or [open a new issue](https://github.com/pkosurilab/BellaVista/issues)in our GitHub repository. You can also leave any feedback here!
 
@@ -204,7 +204,7 @@ For this example, we processed the first FOV from a MERFISH sample dataset from 
 
 1. Download MERlin processed MERFISH mouse primary motor cortex dataset (mouse 2, sample 4, FOV 0) from [dropbox](https://www.dropbox.com/scl/fo/8km4m5wcj5a95ezfqyz7o/AOonVJDDv9GdzwdD-4_7NcU?rlkey=hcruoy48tzveyewkw1z2fya5t).
 
-### Load Bella Vista
+### Load BellaVista
 
 2. In the folder downloaded from dropbox, open `merlin_sample.json`
 3. Replace the path in `data_folder`
@@ -241,13 +241,13 @@ For this example, we processed the first FOV from a MERFISH sample dataset from 
   }
 ```
 
-4. In the terminal, run Bella Vista with the MERlin sample JSON:
+4. In the terminal, run BellaVista with the MERlin sample JSON:
     - The JSON file argument should contain the file path to the JSON file.
 
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-  bellavista merlin_sample.json
+  $ bellavista merlin_sample.json
 ```
 
 ```{eval-rst}
@@ -263,9 +263,9 @@ Using this JSON file, the displayed output should look similar to this:
 ```{eval-rst}
 .. note::
 
-    Gene colors are assigned randomly every time Bella Vista is launched. So, the gene colors displayed in your window will be different from the image above. See :ref:`useful-napari-commands` in the FAQ for commands to configure gene colors and other customizable visualization options. 
+    Gene colors are assigned randomly every time BellaVista is launched. So, the gene colors displayed in your window will be different from the image above. See :ref:`useful-napari-commands` in the FAQ for commands to configure gene colors and other customizable visualization options. 
     
-    To reproduce the same colors every time you launch Bella Vista, see :ref:`creating-figures` in the Figure Guide.
+    To reproduce the same colors every time you launch BellaVista, see :ref:`creating-figures` in the Figure Guide.
 ```
 
 Try zooming in & out, toggling gene and cell segmentation layers on & off:
