@@ -110,9 +110,9 @@ Once your JSON is correctly configured for your dataset, you can run Bella Vista
 
   - Replace `my_dataset.json` with the filename of the JSON you created. The JSON file argument should contain the file path to your JSON file.
 ```{eval-rst}
-.. code-block:: python
+.. code-block:: console
 
-  bellavista my_dataset.json
+  $ bellavista my_dataset.json
 ```
 ```{eval-rst}
 .. note::
@@ -140,57 +140,21 @@ Below is a short tutorial for loading Bella Vista with sample Xenium data. This 
 
 ### Download sample data
 
-1. Download sample data: Xenium mouse brain dataset (replicate 3)
-[https://www.10xgenomics.com/datasets/fresh-frozen-mouse-brain-replicates-1-standard](https://www.10xgenomics.com/datasets/fresh-frozen-mouse-brain-replicates-1-standard)
+1. Download sample data from Zenodo: Xenium mouse brain dataset (Replicate 3) [https://zenodo.org/records/14279832](https://zenodo.org/records/14279832)
 
-To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
 
-<img src="https://github.com/pkosurilab/BellaVista/blob/main/images/xenium_testdata_location.png?raw=true" alt="Xenium sample data website location" width="600"/>
-
+<img src="https://github.com/pkosurilab/BellaVista/blob/updates/zenodo-tutorial/images/zenodo_download.png?raw=true" alt="Xenium sample data zenodo" width="600"/>
+  
 ### Load Bella Vista
 
-2. Download the sample JSON file from the GitHub repository: [BellaVista/sample_json/xenium_sample.json](https://github.com/pkosurilab/BellaVista/tree/main/sample_json/xenium_sample.json)
-3. Replace the path in `data_folder`
-      - Python cannot parse JSON files containing file paths with single backslashes (\\). To avoid errors, use either forward slashes (/) or double backslashes (\\\\) when representing file paths in the JSON strings.
+2. Run BellaVista from the command line with the Xenium sample data:
 
-**xenium_sample.json**
+    - Replace `/path/to/` with the actual path to the Xenium sample data folder.
+
 ```{eval-rst}
+.. code-block:: console
 
-.. code-block:: JSON
-  :emphasize-lines: 3-4
-
-  { 
-      "system": "xenium", 
-      "data_folder": "/path/to/xenium_brain_rep3",
-      "create_bellavista_inputs": true,
-
-      "visualization_parameters": {
-          "plot_image": true,
-          "plot_transcripts": true,
-          "plot_allgenes": true,
-          "genes_visible_on_startup": false,
-          "plot_cell_seg": false,
-          "plot_nuclear_seg": false,
-          "transcript_point_size": 0.75,
-          "contrast_limits": [0, 5000],
-          "rotate_angle": 180
-      },
-
-      "input_files": {
-          "transcript_filename": "transcripts.parquet",
-          "images": "morphology_mip.ome.tif",
-          "cell_segmentation": "cell_boundaries.parquet",
-          "nuclear_segmentation": "nucleus_boundaries.parquet"
-      }
-  }
-```
-
-4. In the terminal, run Bella Vista with the Xenium sample JSON:
-    - The JSON file argument should contain the file path to the JSON file.
-```{eval-rst}
-.. code-block:: python
-
-  bellavista xenium_sample.json
+  $ bellavista --xenium-sample /path/to/xenium_mouse_brain_rep3
 ```
 
 ```{eval-rst}
@@ -199,19 +163,22 @@ To download the dataset, 10x Genomics may ask you to fill out a questionnaire.
     It will take a few minutes to create the required data files. The terminal will print updates & have progress bars for time consuming steps.
 ```
 
-```{eval-rst}
-.. warning::
-
-    This is a large dataset, so if the program crashes or encounters a memory-related error, you may need to visualize a smaller subset of the data. A sample JSON with a smaller subset of the data can be found in the GitHub repository: `BellaVista/sample_json/xenium_sample_subset.json <https://github.com/pkosurilab/BellaVista/blob/updates/misc-changes/sample_json/xenium_sample_subset.json>`_. Repeat steps 2 & 3 with this subsetted sample JSON.
-
-    
-    For more information, see `What should I do if the program crashes? <faq.html#reducing-memory-requirements>`_ in the FAQ.
-```
-
 Once successfully loaded, you should see the message `Data Loaded!` in the terminal.\
 A napari window should appear displaying the data similar to the image below:
 
 <img alt="initial load window" src="_static/tutorials/xenium/xenium_initial.png">
+
+```{eval-rst}
+.. admonition:: This is a large dataset, so if the program encounters a memory-related error, try visualizing a smaller subset of the data with the command:
+    
+    .. code-block:: console
+
+        $ bellavista --xenium-sample-lite /path/to/xenium_mouse_brain_rep3
+
+    
+
+    For more information, see `What should I do if the program crashes? <faq.html#reducing-memory-requirements>`_ in the FAQ.
+```
 
 Now, you can interactively move around the napari canvas to explore the data!\
 Try zooming in & out, toggling layers on & off to see different spatial patterns:
