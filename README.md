@@ -1,5 +1,5 @@
 # readthedocs-BellaVista
 
-Source code for Bella Vista documentation website on readthedocs. 
+Source code for BellaVista documentation website on readthedocs. 
 
-Bella Vista repo: https://github.com/pkosurilab/BellaVista
+BellaVista repo: https://github.com/pkosurilab/BellaVista
